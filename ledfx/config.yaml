@@ -1,14 +1,19 @@
 name: "LedFx"
-version: "1.0.0"
+version: "1.0.1"
 slug: "ledfx"
 description: "Official LedFx Docker Image"
 url: "https://github.com/encrust-ace/ha-addons"
 arch:
   - aarch64
   - amd64
-  - armv7
 startup: application
-host_network: true
+
+# ADDED: Ingress Configuration
+ingress: true
+ingress_port: 8888
+panel_icon: mdi:led-strip
+panel_title: LedFx
+
 audio: true
 map:
   - config:rw
