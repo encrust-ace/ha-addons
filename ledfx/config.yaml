@@ -1,0 +1,28 @@
+name: "LedFx"
+version: "1.0.0"
+slug: "ledfx"
+description: "Official LedFx Docker Image"
+arch:
+  - aarch64
+  - amd64
+startup: application
+
+# Equivalent to 'network_mode: host' in compose
+host_network: true
+
+# Equivalent to the 'volumes' section in compose
+# We grant access to the host audio hardware (PulseAudio)
+audio: true
+
+# We map the config folder. HA mounts persistent storage to /data.
+# We use 'args' to tell LedFx to use /data instead of its default home folder.
+args:
+  - --config
+  - /data
+  - --open-ui
+  - --host
+  - 0.0.0.0
+
+# Optional: If the container needs high privileges to access hardware
+privileged:
+  - hardware
