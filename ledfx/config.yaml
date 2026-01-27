@@ -1,5 +1,5 @@
 name: "LedFx"
-version: "1.0.1"
+version: "1.0.2"
 slug: "ledfx"
 description: "Official LedFx Docker Image"
 url: "https://github.com/encrust-ace/ha-addons"
