@@ -1,5 +1,5 @@
 name: "LedFx"
-version: "1.0.10"
+version: "1.0.11"
 slug: "ledfx"
 description: "Official LedFx Docker Image"
 url: "https://github.com/encrust-ace/ha-addons"
@@ -11,3 +11,6 @@ host_network: true
 audio: true
 map:
   - config:rw
+args:
+  - "--offline"
+  - "--clear-effects"
