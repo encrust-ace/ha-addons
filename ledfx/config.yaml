@@ -1,6 +1,6 @@
 name: "LedFx"
 description: "Audio reactive LED controller"
-version: "1.0.4"
+version: "1.0.5"
 slug: "ledfx"
 init: false
 arch:
@@ -12,7 +12,7 @@ map:
   - config:rw
 audio: true
 ingress: true
-ingress_port: 8099
+ingress_port: 8888
 ingress_stream: true
 panel_icon: mdi:led-strip
 panel_title: "LedFx"
