@@ -3,6 +3,10 @@ FROM ghcr.io/ledfx/ledfx:latest
 
 ENV HOME=/home/ledfx
 
+# Remove upstream ENTRYPOINT (critical)
+ENTRYPOINT []
+
+# Copy startup script with correct permissions
 COPY --chmod=755 run.sh /run.sh
 
-ENTRYPOINT ["/run.sh"]
+CMD ["/bin/bash", "/run.sh"]
