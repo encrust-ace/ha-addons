@@ -1,6 +1,6 @@
 name: "LedFx"
 description: "Audio reactive LED controller"
-version: "1.0.1"
+version: "1.0.2"
 slug: "ledfx"
 init: false
 arch:
