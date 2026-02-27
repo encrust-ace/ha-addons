@@ -1,10 +1,12 @@
 FROM ghcr.io/ledfx/ledfx:latest
 
-# Switch to root to handle Supervisor volume permissions
 USER root
 
+# Install NGINX
+RUN apt-get update && apt-get install -y nginx && rm -rf /var/lib/apt/lists/*
+
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-# Override the base image's entrypoint completely to bypass their PulseAudio script
 ENTRYPOINT [ "/run.sh" ]
