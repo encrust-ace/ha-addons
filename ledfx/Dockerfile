@@ -3,10 +3,8 @@ FROM ghcr.io/ledfx/ledfx:latest
 
 ENV HOME=/home/ledfx
 
-# Remove upstream ENTRYPOINT (critical)
+# Completely clear upstream entrypoint
 ENTRYPOINT []
 
-# Copy startup script with correct permissions
-COPY --chmod=755 run.sh /run.sh
-
-CMD ["/bin/bash", "/run.sh"]
+# Run LedFx directly
+CMD ["ledfx", "--host", "0.0.0.0", "--port", "8888", "--config", "/data"]
