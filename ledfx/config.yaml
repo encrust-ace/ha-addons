@@ -1,7 +1,7 @@
 name: LedFx
 slug: ledfx
 description: Real-time LED effects driven by audio
-version: "1.0.7"
+version: "1.0.8"
 url: https://github.com/encrust-ace/ha-addons
 startup: services
 boot: auto

@@ -13,7 +13,7 @@ fi
 
 echo "Starting LedFx with args: $ARGS"
 
-exec ledfx \
+exec /usr/bin/ledfx \
   --host 0.0.0.0 \
   --port 8888 \
   --config /data \

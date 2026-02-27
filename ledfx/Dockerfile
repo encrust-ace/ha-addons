@@ -5,4 +5,4 @@ ENV HOME=/home/ledfx
 
 COPY --chmod=755 run.sh /run.sh
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/run.sh"]
