@@ -1,8 +1,11 @@
+ARG BUILD_FROM
 FROM ghcr.io/ledfx/ledfx:latest
 
-USER root
+# Home Assistant base image compatibility
+ENV HOME=/home/ledfx
 
+# Copy run script
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-ENTRYPOINT [ "/run.sh" ]
+CMD ["/run.sh"]
