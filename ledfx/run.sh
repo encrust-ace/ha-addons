@@ -2,8 +2,7 @@
 echo "Initializing LedFx HAOS Add-on..."
 
 # 1. Handle Persistent Data
-# Create the config directory in HA's persistent volume and set ownership
-# The ledfx user in the base container operates on UID 1000
+# Create the config directory in HA's persistent volume
 mkdir -p /data/ledfx-config
 chown -R 1000:1000 /data/ledfx-config
 
@@ -12,13 +11,11 @@ rm -rf /home/ledfx/ledfx-config
 ln -s /data/ledfx-config /home/ledfx/ledfx-config
 chown -h 1000:1000 /home/ledfx/ledfx-config
 
-# 2. Audio Setup
-# Home Assistant sets up PULSE_SERVER natively via 'audio: true' in config.yaml.
-# Ensure the ledfx user has access to the audio group/socket if necessary.
-if [ -S "/run/audio/plug" ]; then
-    echo "Home Assistant audio socket detected."
-fi
+# 2. Set Audio Environment Variables
+# Tell LedFx/PulseAudio libraries where Home Assistant's audio socket is
+export PULSE_SERVER="unix:/run/audio/plug"
 
+echo "Starting LedFx..."
 # 3. Start LedFx
-# Drop root privileges and start the app as the ledfx user
-exec su ledfx -c "ledfx --offline"
+# Drop root privileges and start the app as the ledfx user (UID 1000)
+exec su ledfx -c "ledfx --offline --host 0.0.0.0"
