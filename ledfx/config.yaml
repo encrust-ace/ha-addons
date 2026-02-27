@@ -12,10 +12,12 @@ map:
   - config:rw
 audio: true
 ingress: true
-ingress_port: 8080
+ingress_port: 8888
 ingress_stream: true
+panel_icon: mdi:led-strip
+panel_title: "LedFx"
 ports:
-  8080/tcp: 8080
+  8888/tcp: 8888
 host_network: true
 options: {}
 schema: {}

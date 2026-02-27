@@ -18,4 +18,4 @@ export PULSE_SERVER="unix:/run/audio/plug"
 echo "Starting LedFx..."
 # 3. Start LedFx
 # Drop root privileges and start the app as the ledfx user (UID 1000)
-exec su ledfx -c "ledfx --offline --host 0.0.0.0"
+exec su ledfx -c "ledfx --offline --host 0.0.0.0 --port 8888"
