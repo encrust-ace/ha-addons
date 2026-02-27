@@ -1,8 +1,9 @@
 FROM ghcr.io/ledfx/ledfx:latest
 
-# Switch to root to perform filesystem operations
+# Switch to root to handle Supervisor volume permissions
 USER root
 
-# Redirect the configuration directory to /data for persistence
-RUN rm -rf /home/ledfx/ledfx-config && \
-    ln -s /data /home/ledfx/ledfx-config
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
+
+CMD [ "/run.sh" ]
