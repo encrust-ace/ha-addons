@@ -1,25 +1,18 @@
-name: LedFx
-slug: ledfx
-description: Real-time LED effects driven by audio
-version: "1.1.0"
-url: https://github.com/encrust-ace/ha-addons
-startup: services
-boot: auto
-
+name: "LedFx"
+description: "Audio reactive LED controller"
+version: "1.0.0"
+slug: "ledfx"
+init: false
 arch:
-  - amd64
   - aarch64
-
-panel_icon: mdi:led-strip
-
-audio: true
-audio_output: true
-
-ports: {}
-ports_description: {}
-
+  - amd64
+startup: "application"
+boot: "auto"
 map:
   - config:rw
-
+audio: true
+ports:
+  8080/tcp: 8080
+host_network: true
 options: {}
 schema: {}
