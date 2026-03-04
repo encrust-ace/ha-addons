@@ -9,10 +9,7 @@ boot: auto
 arch:
   - amd64
   - aarch64
-  - armv7
 
-ingress: true
-ingress_port: 8888
 panel_icon: mdi:led-strip
 
 audio: true

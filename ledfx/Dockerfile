@@ -1,10 +1,8 @@
-ARG BUILD_FROM
 FROM ghcr.io/ledfx/ledfx:latest
 
-ENV HOME=/home/ledfx
+# Switch to root to perform filesystem operations
+USER root
 
-# Completely clear upstream entrypoint
-ENTRYPOINT []
-
-# Run LedFx directly
-CMD ["ledfx", "--host", "0.0.0.0", "--port", "8888", "--config", "/data"]
+# Remove the default configuration directory and symlink it to the persistent /data volume
+RUN rm -rf /home/ledfx/ledfx-config && \
+    ln -s /data /home/ledfx/ledfx-config
